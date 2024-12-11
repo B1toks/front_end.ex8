@@ -1,13 +1,14 @@
-import React from "react";
-import "./Logo.css";
-
-import logo from "../assets/logo.png";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { selectLogoPath } from '../store/logoSlice';
 
 const Logo = () => {
+  const logoPath = useSelector(selectLogoPath); 
+
   return (
-    <a href="/" className="logo">
-      <img src={logo} alt="Logo" />
-    </a>
+    <div>
+      <img src={logoPath} alt="Logo" />
+    </div>
   );
 };
 

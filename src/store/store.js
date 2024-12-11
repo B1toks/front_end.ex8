@@ -18,7 +18,7 @@ const loadFromLocalStorage = () => {
     return JSON.parse(serializedState);
   } catch (e) {
     console.error('Could not load cart state:', e);
-    return undefined;
+    return undefined; 
   }
 };
 

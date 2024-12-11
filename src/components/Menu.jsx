@@ -1,14 +1,18 @@
-import React from "react";
-import MenuItem from "./MenuItem";
-import "./Menu.css";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { selectMenuItems } from '../store/menuslice';
 
-const Menu = ({ list }) => {
+const Menu = () => {
+  const menuItems = useSelector(selectMenuItems); // Отримання елементів меню з Redux Store
+
   return (
-    <ul className="menu">
-      {list.map((item, index) => (
-        <MenuItem key={index} text={item.text} url={item.url} />
-      ))}
-    </ul>
+    <nav>
+      <ul>
+        {menuItems.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+    </nav>
   );
 };
 

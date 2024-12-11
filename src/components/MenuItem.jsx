@@ -1,19 +1,9 @@
-import React from "react";
+import { setLogoPath } from './store/logoSlice';
+import { setMenuItems } from './store/menuSlice';
+import store from './store/store';
 
-const MenuItem = ({ text, url }) => {
-  const isExternal = url && !url.startsWith(window.location.origin);
+// Встановлення логотипу
+store.dispatch(setLogoPath('/custom-logo.png'));
 
-  return (
-    <li>
-      {url ? (
-        <a href={url} target={isExternal ? "_blank" : "_self"} rel="noopener noreferrer">
-          {text}
-        </a>
-      ) : (
-        <span>{text}</span>
-      )}
-    </li>
-  );
-};
-
-export default MenuItem;
+// Встановлення елементів меню
+store.dispatch(setMenuItems(['Home', 'About', 'Contact']));
